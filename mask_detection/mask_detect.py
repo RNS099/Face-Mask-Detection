@@ -16,7 +16,7 @@ MSG = [" YES ", " NO "]
 SIZE = (224, 224)
 
 thickness = 2
-p, n = None, None
+p, n , faces = None, None, None
 
 
 def preprocess(img):
@@ -29,12 +29,10 @@ while True:
 
     hascap, img = cam.read()
     imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-     
-
+    
     faces = maskDetect.detectMultiScale(imgGray, 1.089, 6)
 
     if len(faces):
-
         for (x,y,w,h) in faces:
             area = w*h
             if area > 9000 :
@@ -49,10 +47,8 @@ while True:
                 cv2.rectangle(img, (x,y), (x+w, y+h), COLOR[c], thickness)
                 cv2.rectangle(img,(x-1,y-40),(x+w+1,y),COLOR[c], -1)
                 cv2.putText(img, MSG[c], (x,y-5), cv2.FONT_HERSHEY_DUPLEX, 1, COLOR[2], 2)
-            
-            
-                
-                
+     else:
+        pass              
 
     display1 = f"FACES : {len(faces)}"
     display2 = f"PROBABILITY : {p} %"
