@@ -7,7 +7,6 @@ The Face Mask Detection System is a computer vision-based project designed to id
 After cloning the repository, in terminal go to the directory and type python mask_detect.py  
 
 ```bat
-cd \
-copy a b
-ping 192.168.0.1
+cd Face-Mask-Detection
+python mask_detect.py
 ```
